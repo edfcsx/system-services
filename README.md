@@ -1,8 +1,10 @@
 # System Services
 
-Aplicativo desktop para Linux que permite monitorar e controlar serviços systemd e portas de rede abertas, tudo em uma interface gráfica com tema escuro.
+Aplicativo desktop para Linux que permite monitorar e controlar serviços systemd e portas de rede abertas.
 
 ![Java 17](https://img.shields.io/badge/Java-17-blue) ![Swing](https://img.shields.io/badge/UI-Swing-informational) ![Gradle](https://img.shields.io/badge/Build-Gradle-02303A)
+
+![Screenshot](screenshot.png)
 
 ## Funcionalidades
 
@@ -22,10 +24,18 @@ Aplicativo desktop para Linux que permite monitorar e controlar serviços system
 - Chips com total de portas e quantidade com processo identificado
 - Duplo clique abre painel de detalhes da porta
 
+## Download
+
+<p>
+  <a href="https://github.com/edfcsx/system-services/releases/download/1.0/system-services-1.0.zip">
+    <img src="https://img.shields.io/badge/Download-system--services--1.0.zip-brightgreen?style=for-the-badge&logo=github" alt="Download system-services-1.0.zip">
+  </a>
+</p>
+
 ## Pré-requisitos
 
 | Dependência | Versão mínima | Observação |
-|---|---|---|
+|-------------|---------------|------------|
 | Java | 17 | Instalado automaticamente pelo `install.sh` |
 | systemd | qualquer | Necessário para a aba Serviços |
 | iproute2 (`ss`) | qualquer | Necessário para a aba Portas |
@@ -33,39 +43,16 @@ Aplicativo desktop para Linux que permite monitorar e controlar serviços system
 
 ## Instalação
 
-### 1. Compilar o JAR
+1. Baixe o arquivo `.zip` pelo botão acima
+2. Extraia o conteúdo em qualquer diretório
+3. Abra um terminal dentro da pasta extraída e execute:
 
 ```bash
-./gradlew jar
+chmod +x install.sh
+./install.sh
 ```
 
-O arquivo gerado fica em `build/libs/system-services-1.0-SNAPSHOT.jar`.
-
-### 2. Instalar no sistema
-
-Copie o JAR e o `icon.png` para um diretório e execute o script de instalação:
-
-```bash
-cp build/libs/system-services-1.0-SNAPSHOT.jar ./
-cp src/main/resources/icon.png ./
-bash install.sh
-```
-
-O script realiza as seguintes etapas automaticamente:
-
-- Verifica e instala o Java 17 caso necessário (suporta apt, dnf, pacman e zypper)
-- Copia os arquivos para `~/.local/share/applications/edfcsx/system-services/`
-- Cria a entrada `.desktop` em `~/.local/share/applications/`
-- Registra o ícone em `~/.local/share/icons/hicolor/256x256/apps/`
-- Atualiza os caches do desktop e de ícones
-
-Após a instalação, o **System Services** aparece no menu de aplicativos do sistema na categoria **System**.
-
-### Execução direta (sem instalar)
-
-```bash
-java -jar build/libs/system-services-1.0-SNAPSHOT.jar
-```
+O script verifica e instala o Java 17 automaticamente (se necessário) e registra o aplicativo no menu do sistema, na categoria **System**.
 
 ## Estrutura do Projeto
 

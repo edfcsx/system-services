@@ -6,6 +6,7 @@ build/
 .kotlin
 
 .claude
+.idea
 
 ### IntelliJ IDEA ###
 .idea/modules.xml
